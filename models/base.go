@@ -29,17 +29,18 @@ func init() {
 	}
 
 	username := os.Getenv("DB_USER")
-	password := os.Getenv("DB_PASS")
+	password := os.Getenv("DB_PASSWORD")
 	dbName := os.Getenv("DB_NAME")
-	dbHost := os.Getenv("DB_HOST")
-	dbPort := os.Getenv("DB_PORT")
+	//dbHost := os.Getenv("DB_HOST")
+	//dbPort := os.Getenv("DB_PORT")
 
 	msql := mysql.Config{}
 	log.Println(msql)
 
-	conn, err := gorm.Open("mysql", username+":"+password+"@tcp("+dbHost+":"+dbPort+")/"+dbName+"?charset=utf8&parseTime=True&loc=Asia%2FKolkata")
+	conn, err := gorm.Open("mysql", username+":"+password+"@/"+dbName+"?charset=utf8&parseTime=True&loc=Local")
 
 	if err != nil {
+		fmt.Println("ran into error opening connection xo")
 		fmt.Print(err)
 	}
 	db = conn

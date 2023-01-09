@@ -1,11 +1,11 @@
 package routers
 
 import (
+	"github.com/gin-gonic/gin"
 	apiControllerV1 "mklogistics/controllers/api/v1"
 	apiControllerV2 "mklogistics/controllers/api/v2"
+	webhandler "mklogistics/controllers/web"
 	"mklogistics/middlewares"
-
-	"github.com/gin-gonic/gin"
 )
 
 //SetupRouter function will perform all route operations
@@ -38,6 +38,10 @@ func SetupRouter() *gin.Engine {
 
 	//API route for version 1
 	v1 := r.Group("/api/v1")
+
+	//Web route for web views.
+	web := r.Group("web")
+	web.GET("demo.html", webhandler.ViewDemo)
 
 	//If you want to pass your route through specific middlewares
 	v1.Use(middlewares.UserMiddlewares())
