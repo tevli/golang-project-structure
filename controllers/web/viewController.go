@@ -8,3 +8,9 @@ import (
 func ViewDemo(c *gin.Context) {
 	c.HTML(http.StatusOK, "demo.html", "")
 }
+func ViewIndex(c *gin.Context) {
+	c.HTML(http.StatusOK, "index.html", "")
+}
+func ViewAbout(c *gin.Context) {
+	c.HTML(http.StatusOK, "about.html", "")
+}
