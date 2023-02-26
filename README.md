@@ -51,6 +51,8 @@ Contains environment variables.
 
 ## Steps to Follow
 
+. Find and replace all instances of "mklogistics" with your app name.
+
 . For running the server you have to run following command in the terminal.
         ```go run main.go
         ```
